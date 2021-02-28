@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
   const postCalls = connectionData.Items.map(async ({ connectionId }) => {
     try {
       //ポストされたデータを送り返す
-      await apigwManagementApi.postToConnection({ ConnectionId: connectionId, Data: postData }).promise();
+      await apigwManagementApi.postToConnection({ ConnectionId: connectionId, Data: JSON.stringify(postData) }).promise();
     } catch (e) {
       if (e.statusCode === 410) {
         //410エラーだったらそのコネクションIDをDBから削除

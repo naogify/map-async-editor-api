@@ -16,7 +16,7 @@ provider:
     TABLE_NAME:
       Ref: ConnectionsTable
   websocketsApiName: ${self:service.name}
-  websocketsApiRouteSelectionExpression: $request.body.message
+  websocketsApiRouteSelectionExpression: $request.body.action
 
 functions:
   connect:
